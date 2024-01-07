@@ -1,6 +1,7 @@
 import Spinner from '@/components/Spinner';
 import { useGetBooks } from '@/hooks/useBooks';
 import { Icons } from '@/utils/Icons';
+import { GetBookInfoType } from '@/utils/types';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -33,7 +34,7 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.info.map((book, index: number) => (
+            {data?.info.map((book: GetBookInfoType, index: number) => (
               <tr key={book._id} className='h-8'>
                 <td className='border border-slate-700 rounded-md text-center'>
                   {index + 1}

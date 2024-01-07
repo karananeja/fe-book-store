@@ -10,3 +10,14 @@ export type MutationOptionsType = UseMutationOptions<
   BookType,
   unknown
 >;
+
+export type GetBookInfoType = {
+  _id: string;
+  title: string;
+  author: string;
+  publishYear: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type GetBooksType = { msg: string; info: GetBookInfoType[] };

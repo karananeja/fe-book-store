@@ -5,11 +5,14 @@ import {
   getBooks,
   updateBook,
 } from '@/services/booksConnect';
-import { MutationOptionsType } from '@/utils/types';
+import { GetBooksType, MutationOptionsType } from '@/utils/types';
 import { UseQueryOptions, useMutation, useQuery } from '@tanstack/react-query';
 
 export const useGetBooks = () => {
-  return useQuery({ queryKey: ['get-books'], queryFn: getBooks });
+  return useQuery<GetBooksType>({
+    queryKey: ['get-books'],
+    queryFn: getBooks,
+  });
 };
 
 export const useGetBook = (
