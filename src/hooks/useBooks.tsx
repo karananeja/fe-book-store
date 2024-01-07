@@ -20,7 +20,7 @@ export const useGetBook = (
   options: Partial<UseQueryOptions<GetBookType>>
 ) => {
   return useQuery({
-    queryKey: ['get-book'],
+    queryKey: ['get-book', bookId],
     queryFn: () => getBook(bookId),
     ...options,
   });
