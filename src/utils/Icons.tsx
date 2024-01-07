@@ -90,4 +90,43 @@ export const Icons = {
       <path d='m12 8-4 4 4 4' />
     </svg>
   ),
+  user: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='M18 20a6 6 0 0 0-12 0' />
+      <circle cx='12' cy='10' r='4' />
+      <circle cx='12' cy='12' r='10' />
+    </svg>
+  ),
+  author: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z' />
+      <path d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z' />
+      <path d='M6 8h2' />
+      <path d='M6 12h2' />
+      <path d='M16 8h2' />
+      <path d='M16 12h2' />
+    </svg>
+  ),
 };
