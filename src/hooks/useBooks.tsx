@@ -5,28 +5,32 @@ import {
   getBooks,
   updateBook,
 } from '@/services/booksConnect';
-import {
-  UseMutationOptions,
-  useMutation,
-  useQuery,
-} from '@tanstack/react-query';
+import { MutationOptionsType } from '@/utils/types';
+import { UseQueryOptions, useMutation, useQuery } from '@tanstack/react-query';
 
 export const useGetBooks = () => {
   return useQuery({ queryKey: ['get-books'], queryFn: getBooks });
 };
 
-export const useGetBook = () => {
-  return useQuery({ queryKey: ['get-book'], queryFn: getBook });
+export const useGetBook = (
+  bookId: string,
+  options: Partial<UseQueryOptions>
+) => {
+  return useQuery({
+    queryKey: ['get-book'],
+    queryFn: () => getBook(bookId),
+    ...options,
+  });
 };
 
-export const useCreateBook = (options: UseMutationOptions) => {
+export const useCreateBook = (options: MutationOptionsType) => {
   return useMutation({ mutationFn: createBook, ...options });
 };
 
-export const useUpdateBook = (options: UseMutationOptions) => {
+export const useUpdateBook = (options: MutationOptionsType) => {
   return useMutation({ mutationFn: updateBook, ...options });
 };
 
-export const useDeleteBook = (options: UseMutationOptions) => {
+export const useDeleteBook = (options: MutationOptionsType) => {
   return useMutation({ mutationFn: deleteBook, ...options });
 };
