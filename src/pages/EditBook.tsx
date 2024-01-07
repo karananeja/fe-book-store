@@ -4,6 +4,7 @@ import Spinner from '@/components/Spinner';
 import { useGetBook, useUpdateBook } from '@/hooks/useBooks';
 import { BookType } from '@/utils/types';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 
 const EditBook = () => {
   const [title, setTitle] = useState<string>('');
@@ -15,6 +16,7 @@ const EditBook = () => {
   const { isPending, mutateAsync: updateBook } = useUpdateBook(bookId!, {
     onSuccess: () => navigate('/'),
   });
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     if (!isLoading && data) {
@@ -27,6 +29,7 @@ const EditBook = () => {
   const handleCreateBook = async () => {
     const newBook: BookType = { title, author, publishYear: +year };
     await updateBook(newBook);
+    enqueueSnackbar('Book Updated Successfully', { variant: 'success' });
   };
 
   return (

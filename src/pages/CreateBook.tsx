@@ -4,6 +4,7 @@ import Spinner from '@/components/Spinner';
 import { useCreateBook } from '@/hooks/useBooks';
 import { BookType } from '@/utils/types';
 import { useNavigate } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 
 const CreateBook = () => {
   const [title, setTitle] = useState<string>('');
@@ -13,10 +14,12 @@ const CreateBook = () => {
   const { isPending, mutateAsync: createBook } = useCreateBook({
     onSuccess: () => navigate('/'),
   });
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleCreateBook = async () => {
     const newBook: BookType = { title, author, publishYear: +year };
     await createBook(newBook);
+    enqueueSnackbar('Book Created Successfully', { variant: 'success' });
   };
 
   return (

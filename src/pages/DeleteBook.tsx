@@ -2,6 +2,7 @@ import BackButton from '@/components/BackButton';
 import Spinner from '@/components/Spinner';
 import { useDeleteBook } from '@/hooks/useBooks';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 
 const DeleteBook = () => {
   const navigate = useNavigate();
@@ -9,9 +10,11 @@ const DeleteBook = () => {
   const { isPending, mutateAsync: deleteBook } = useDeleteBook({
     onSuccess: () => navigate('/'),
   });
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleDeleteBook = async () => {
     await deleteBook(bookId!);
+    enqueueSnackbar('Book Deleted Successfully', { variant: 'success' });
   };
 
   return (
