@@ -5,9 +5,9 @@ const bookStore = axios.create({
   baseURL: import.meta.env.VITE_APP_API_BASE_URL,
 });
 
-export const apiPost = async (url: string, body: BookType, headers = {}) => {
+export const apiPost = async (url: string, body: BookType) => {
   return await bookStore
-    .post(url, body, headers)
+    .post(url, body)
     .then((response) => response.data.data)
     .catch((error) => {
       throw error;
