@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const bookStore = axios.create({ baseURL: import.meta.env.BASE_URL });
+const bookStore = axios.create({
+  baseURL: import.meta.env.VITE_APP_API_BASE_URL,
+});
 
 export const apiPost = async (url: string, body: string, headers = {}) => {
   return await bookStore
