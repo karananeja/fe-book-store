@@ -23,3 +23,7 @@ export type GetBookInfoType = {
 export type GetBooksType = { msg: string; info: GetBookInfoType[] };
 
 export type GetBookType = { msg: string; info: GetBookInfoType };
+
+export type BooksTablePropsType = { bookList?: GetBookInfoType[] };
+
+export type BooksCardPropsType = BooksTablePropsType;
