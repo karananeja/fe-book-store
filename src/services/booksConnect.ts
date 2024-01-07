@@ -7,6 +7,7 @@ export const createBook = (body: BookType) => apiPost('/books', body);
 
 export const getBook = (bookId: string) => apiGet(`/books/${bookId}`);
 
-export const updateBook = (body: BookType) => apiPut('/books/:bookId', body);
+export const updateBook = (body: BookType, bookId: string) =>
+  apiPut(`/books/${bookId}`, body);
 
-export const deleteBook = () => apiDelete('/books/:bookId');
+export const deleteBook = (bookId: string) => apiDelete(`/books/${bookId}`);
