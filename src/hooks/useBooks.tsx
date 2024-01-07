@@ -5,7 +5,12 @@ import {
   getBooks,
   updateBook,
 } from '@/services/booksConnect';
-import { GetBookType, GetBooksType, MutationOptionsType } from '@/utils/types';
+import {
+  BookType,
+  GetBookType,
+  GetBooksType,
+  MutationOptionsType,
+} from '@/utils/types';
 import { UseQueryOptions, useMutation, useQuery } from '@tanstack/react-query';
 
 export const useGetBooks = () => {
@@ -26,13 +31,13 @@ export const useGetBook = (
   });
 };
 
-export const useCreateBook = (options?: MutationOptionsType) => {
+export const useCreateBook = (options?: MutationOptionsType<BookType>) => {
   return useMutation({ mutationFn: createBook, ...options });
 };
 
 export const useUpdateBook = (
   bookId: string,
-  options?: MutationOptionsType
+  options?: MutationOptionsType<BookType>
 ) => {
   return useMutation({
     mutationFn: (body) => updateBook(body, bookId),
@@ -40,9 +45,6 @@ export const useUpdateBook = (
   });
 };
 
-export const useDeleteBook = (
-  bookId: string,
-  options?: MutationOptionsType
-) => {
-  return useMutation({ mutationFn: () => deleteBook(bookId), ...options });
+export const useDeleteBook = (options?: MutationOptionsType<string>) => {
+  return useMutation({ mutationFn: deleteBook, ...options });
 };
