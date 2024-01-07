@@ -29,3 +29,5 @@ export type BooksTablePropsType = { bookList?: GetBookInfoType[] };
 export type BooksCardPropsType = BooksTablePropsType;
 
 export type BookCardPropsType = { book: GetBookInfoType };
+
+export type BookModalPropsType = BookCardPropsType & { onClose: () => void };
