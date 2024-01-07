@@ -4,10 +4,10 @@ export type BackButtonPropsType = { destination?: string };
 
 export type BookType = { title: string; author: string; publishYear: number };
 
-export type MutationOptionsType = UseMutationOptions<
+export type MutationOptionsType<T> = UseMutationOptions<
   unknown,
   DefaultError,
-  BookType,
+  T,
   unknown
 >;
 
