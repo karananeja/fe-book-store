@@ -1,9 +1,13 @@
 import { Icons } from '@/utils/Icons';
 import { BookCardPropsType } from '@/utils/types';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BookModal from './BookModal';
 
 const BookCard = (props: BookCardPropsType) => {
   const { book } = props;
+
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
     <div
@@ -27,6 +31,11 @@ const BookCard = (props: BookCardPropsType) => {
       </div>
 
       <div className='flex justify-between items-center gap-x-2 mt-4 p-4'>
+        <Icons.eyeOpen
+          className='text-3xl text-blue-800 hover:text-black cursor-pointer'
+          onClick={() => setShowModal(true)}
+        />
+
         <Link to={`/books/details/${book._id}`}>
           <Icons.info className='text-2xl text-green-800 hover:text-black' />
         </Link>
@@ -39,6 +48,10 @@ const BookCard = (props: BookCardPropsType) => {
           <Icons.delete className='text-2xl text-red-600 hover:text-black' />
         </Link>
       </div>
+
+      {showModal && (
+        <BookModal book={book} onClose={() => setShowModal(false)} />
+      )}
     </div>
   );
 };
