@@ -30,10 +30,19 @@ export const useCreateBook = (options?: MutationOptionsType) => {
   return useMutation({ mutationFn: createBook, ...options });
 };
 
-export const useUpdateBook = (options?: MutationOptionsType) => {
-  return useMutation({ mutationFn: updateBook, ...options });
+export const useUpdateBook = (
+  bookId: string,
+  options?: MutationOptionsType
+) => {
+  return useMutation({
+    mutationFn: (body) => updateBook(body, bookId),
+    ...options,
+  });
 };
 
-export const useDeleteBook = (options?: MutationOptionsType) => {
-  return useMutation({ mutationFn: deleteBook, ...options });
+export const useDeleteBook = (
+  bookId: string,
+  options?: MutationOptionsType
+) => {
+  return useMutation({ mutationFn: () => deleteBook(bookId), ...options });
 };
