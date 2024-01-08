@@ -7,14 +7,14 @@ import {
 } from '@/services/booksConnect';
 import {
   BookType,
-  GetBookType,
+  GetBookInfoType,
   GetBooksType,
   MutationOptionsType,
 } from '@/utils/types';
 import { UseQueryOptions, useMutation, useQuery } from '@tanstack/react-query';
 
 export const useGetBooks = () => {
-  return useQuery<GetBooksType>({
+  return useQuery<GetBooksType<GetBookInfoType[]>>({
     queryKey: ['get-books'],
     queryFn: getBooks,
   });
@@ -22,7 +22,7 @@ export const useGetBooks = () => {
 
 export const useGetBook = (
   bookId: string,
-  options: Partial<UseQueryOptions<GetBookType>>
+  options: Partial<UseQueryOptions<GetBooksType<GetBookInfoType>>>
 ) => {
   return useQuery({
     queryKey: ['get-book', bookId],

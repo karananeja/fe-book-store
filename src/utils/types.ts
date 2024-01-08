@@ -20,9 +20,7 @@ export type GetBookInfoType = {
   updatedAt: string;
 };
 
-export type GetBooksType = { msg: string; info: GetBookInfoType[] };
-
-export type GetBookType = { msg: string; info: GetBookInfoType };
+export type GetBooksType<T> = { msg: string; info: T };
 
 export type BooksTablePropsType = { bookList?: GetBookInfoType[] };
 
