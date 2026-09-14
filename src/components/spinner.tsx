@@ -1,5 +1,11 @@
+import { Loader2 } from 'lucide-react';
+
 const Spinner = () => {
-  return <div className='animate-ping w-16 h-16 m-8 rounded-full bg-sky-600' />;
+  return (
+    <div className='flex items-center justify-center p-8'>
+      <Loader2 className='h-8 w-8 animate-spin text-primary' />
+    </div>
+  );
 };
 
 export default Spinner;
