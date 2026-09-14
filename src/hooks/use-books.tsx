@@ -4,7 +4,7 @@ import {
   getBook,
   getBooks,
   updateBook,
-} from '@/services/booksConnect';
+} from '@/services/books-connect';
 import {
   BookType,
   GetBookInfoType,
