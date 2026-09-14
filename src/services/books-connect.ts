@@ -1,5 +1,5 @@
 import { BookType } from '@/utils/types';
-import { apiDelete, apiGet, apiPost, apiPut } from './apiClient';
+import { apiDelete, apiGet, apiPost, apiPut } from './api-client';
 
 export const getBooks = () => apiGet('/books');
 
